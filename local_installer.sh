@@ -7,6 +7,10 @@ sudo apt install wireguard -y
 (umask 077 && printf "[Interface]\nPrivateKey= " | sudo tee /etc/wireguard/wg0.conf > /dev/null) 
 wg genkey | sudo tee -a /etc/wireguard/wg0.conf | wg pubkey | sudo tee /etc/wireguard/publickey
 
+# Read and display the public key
+echo "Wireguard: Home Server publickey"
+sudo cat /etc/wireguard/publickey
+
 # Get VPS public IP
 echo "Enter the public IP of your VPS/ Cloud Server:" 
 read -r vps_public_ip </dev/tty
